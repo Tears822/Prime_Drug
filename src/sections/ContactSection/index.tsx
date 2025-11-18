@@ -25,7 +25,7 @@ export const ContactSection = () => {
                     <div className="relative self-start caret-transparent col-end-2 col-start-1 row-end-2 row-start-1 justify-self-start ml-[calc(50%_-_490px)] break-words w-[660px] mt-[139px] mb-[33px] left-[159px]">
                       <h2 className="text-yellow-300 text-[40px] caret-transparent break-words pointer-events-auto text-center font-oswald_medium">
                         <span className="caret-transparent break-words">
-                          AR PHARMA
+                          Prime Laboratory
                         </span>
                       </h2>
                     </div>

@@ -1,6 +1,5 @@
 import { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 
 interface ThreeDVialProps {
@@ -12,96 +11,99 @@ interface ThreeDVialProps {
 const VialMesh = ({ color = "#2563eb", label = "PRIME" }: { color: string; label: string }) => {
   const meshRef = useRef<THREE.Group>(null);
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.005;
-    }
-  });
-
-  // Create label texture
-  const labelTexture = (() => {
-    const canvas = document.createElement("canvas");
-    canvas.width = 512;
-    canvas.height = 512;
-    const ctx = canvas.getContext("2d")!;
-
-    // Background
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, 512, 512);
-
-    // Stripes
-    ctx.fillStyle = color;
-    ctx.fillRect(40, 0, 20, 512);
-    ctx.fillStyle = `${color}99`;
-    ctx.fillRect(80, 0, 15, 512);
-
-    // Text
-    ctx.fillStyle = color;
-    ctx.font = "bold 72px Inter, sans-serif";
-    ctx.textAlign = "center";
-    ctx.save();
-    ctx.translate(256, 256);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText(label, 0, 25);
-    ctx.restore();
-
-    // Dosage
-    ctx.font = "32px Inter, sans-serif";
-    ctx.fillStyle = "#666";
-    ctx.save();
-    ctx.translate(256, 356);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText("PHARMACEUTICAL GRADE", 0, 15);
-    ctx.restore();
-
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    return texture;
-  })();
-
   return (
     <group ref={meshRef} position={[0, 0, 0]}>
-      {/* Glass vial body */}
-      <mesh position={[0, 0, 0]} castShadow>
-        <cylinderGeometry args={[0.4, 0.4, 3, 32]} />
+      {/* Glass vial body - main cylinder */}
+      <mesh position={[0, 0, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.45, 0.45, 3.2, 32]} />
         <meshPhysicalMaterial
-          color="#e8f4ff"
+          color="#ffffff"
           transparent
-          opacity={0.4}
-          roughness={0.1}
-          metalness={0.1}
-          transmission={0.9}
-          thickness={0.5}
+          opacity={0.15}
+          roughness={0.05}
+          metalness={0.0}
+          transmission={0.95}
+          thickness={0.8}
+          clearcoat={1.0}
+          clearcoatRoughness={0.1}
+          ior={1.5}
+        />
+      </mesh>
+
+      {/* Glass shoulder/neck */}
+      <mesh position={[0, 1.7, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.3, 0.45, 0.4, 32]} />
+        <meshPhysicalMaterial
+          color="#ffffff"
+          transparent
+          opacity={0.15}
+          roughness={0.05}
+          metalness={0.0}
+          transmission={0.95}
+          thickness={0.8}
+          clearcoat={1.0}
+          clearcoatRoughness={0.1}
+          ior={1.5}
+        />
+      </mesh>
+
+      {/* Glass top rim */}
+      <mesh position={[0, 1.95, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.32, 0.3, 0.1, 32]} />
+        <meshPhysicalMaterial
+          color="#ffffff"
+          transparent
+          opacity={0.15}
+          roughness={0.05}
+          metalness={0.0}
+          transmission={0.95}
+          thickness={0.8}
+          clearcoat={1.0}
+          clearcoatRoughness={0.1}
+          ior={1.5}
         />
       </mesh>
 
       {/* Liquid inside */}
-      <mesh position={[0, -0.3, 0]} castShadow>
-        <cylinderGeometry args={[0.35, 0.35, 2.4, 32]} />
+      <mesh position={[0, -0.2, 0]} castShadow>
+        <cylinderGeometry args={[0.4, 0.4, 2.6, 32]} />
         <meshStandardMaterial
           color={color}
           transparent
-          opacity={0.7}
+          opacity={0.8}
           roughness={0.2}
-          metalness={0.3}
+          metalness={0.1}
         />
       </mesh>
 
-      {/* Metal cap */}
-      <mesh position={[0, 1.6, 0]} castShadow>
-        <cylinderGeometry args={[0.42, 0.42, 0.3, 32]} />
+      {/* Aluminum crimp cap - main body */}
+      <mesh position={[0, 2.1, 0]} castShadow>
+        <cylinderGeometry args={[0.38, 0.35, 0.25, 32]} />
         <meshStandardMaterial
-          color="#7c7c7c"
-          roughness={0.3}
+          color="#b8bcc4"
+          roughness={0.4}
+          metalness={0.85}
+        />
+      </mesh>
+
+      {/* Cap top */}
+      <mesh position={[0, 2.25, 0]} castShadow>
+        <cylinderGeometry args={[0.35, 0.38, 0.05, 32]} />
+        <meshStandardMaterial
+          color="#c5c9d1"
+          roughness={0.35}
           metalness={0.9}
         />
       </mesh>
 
-      {/* Label */}
-      <mesh position={[0, 0, 0.41]}>
-        <planeGeometry args={[3, 0.8]} />
-        <meshStandardMaterial map={labelTexture} />
+      {/* Cap ring detail */}
+      <mesh position={[0, 2.0, 0]} castShadow>
+        <cylinderGeometry args={[0.36, 0.36, 0.08, 32]} />
+        <meshStandardMaterial
+          color="#a8adb8"
+          roughness={0.45}
+          metalness={0.8}
+        />
       </mesh>
     </group>
   );
@@ -111,24 +113,17 @@ export const ThreeDVial = ({ color = "#2563eb", label = "PRIME", autoRotate = tr
   return (
     <Canvas
       className="h-[280px] w-full"
-      camera={{ position: [2.5, 1.5, 2.5], fov: 45 }}
+      camera={{ position: [2.5, 2, 2.5], fov: 45 }}
       shadows
     >
-      <color attach="background" args={["#f8fafc"]} />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[3, 4, 2]} intensity={1.2} castShadow />
-      <spotLight position={[-3, 3, -2]} intensity={0.5} />
+      <color attach="background" args={["#ffffff"]} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[5, 8, 3]} intensity={1.5} castShadow />
+      <directionalLight position={[-3, 5, -2]} intensity={0.8} />
+      <pointLight position={[0, 5, 0]} intensity={0.6} />
       <Suspense fallback={null}>
         <VialMesh color={color} label={label} />
       </Suspense>
-      <OrbitControls
-        enablePan={false}
-        autoRotate={autoRotate}
-        autoRotateSpeed={2}
-        maxPolarAngle={Math.PI / 2}
-        minDistance={3}
-        maxDistance={6}
-      />
     </Canvas>
   );
 };

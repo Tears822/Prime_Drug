@@ -2,7 +2,7 @@ export const Logo = () => {
     return (
       <div className="relative self-start caret-transparent col-end-2 col-start-1 row-end-2 row-start-1 h-[50px] justify-self-start ml-[calc(50%_-_97.5px)] pointer-events-auto w-[74px] mt-[35px] mb-2.5 left-0">
         <a
-          href="https://www.arpharma.net/"
+          href="#"
           className="text-blue-700 box-border caret-transparent block h-full w-full overflow-hidden"
         >
           <img

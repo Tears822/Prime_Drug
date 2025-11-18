@@ -37,7 +37,7 @@ export const FooterColumn = (props: FooterColumnProps) => {
               >
                 {link.href ? (
                   <Link
-                    to={link.href.replace("https://www.arpharma.net", "")}
+                    to={link.href.replace("https://www.primelaboratory.com", "")}
                     className={
                       link.className || "caret-transparent break-words"
                     }

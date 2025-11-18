@@ -40,18 +40,6 @@ const BoxMesh = () => {
       ctx.fillStyle = "#2563eb";
       ctx.fillRect(824, 0, 200, 1024);
       crown(ctx, 120, 80, 160);
-      ctx.fillStyle = "#0f172a";
-      ctx.font = "bold 140px 'Poppins'";
-      ctx.fillText("PRIME", 120, 540);
-      ctx.font = "40px 'Inter'";
-      ctx.fillText("TESTOSTERONE ENANTHATE", 120, 430);
-      ctx.fillStyle = "#2563eb";
-      ctx.font = "bold 52px 'Inter'";
-      ctx.fillText("250MG/ML", 120, 640);
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "32px 'Inter'";
-      ctx.fillText("Store in a dry place 15-25ºC • Keep out of reach of children", 120, 760);
-      ctx.fillText("For intramuscular use • Do not use after expiry date", 120, 820);
     });
 
     const side = createTexture((ctx) => {
@@ -59,13 +47,6 @@ const BoxMesh = () => {
       ctx.fillRect(0, 0, 1024, 1024);
       ctx.fillStyle = "#2563eb";
       ctx.fillRect(700, 0, 60, 1024);
-      ctx.fillStyle = "#0f172a";
-      ctx.font = "bold 120px 'Poppins'";
-      ctx.save();
-      ctx.translate(400, 780);
-      ctx.rotate(-Math.PI / 2);
-      ctx.fillText("PRIME", 0, 0);
-      ctx.restore();
     });
 
     const top = createTexture((ctx) => {
@@ -101,7 +82,7 @@ const BoxMesh = () => {
 
 export const ThreeDBox = () => (
   <Canvas
-    className="h-[480px] w-full"
+    className="h-[400px] w-full"
     camera={{ position: [3.2, 2.8, 4.4], fov: 40 }}
     shadows
   >
@@ -111,7 +92,6 @@ export const ThreeDBox = () => (
     <Suspense fallback={null}>
       <BoxMesh />
     </Suspense>
-    <OrbitControls enablePan={false} maxPolarAngle={Math.PI / 2.2} minDistance={2.8} maxDistance={7} />
   </Canvas>
 );
 
