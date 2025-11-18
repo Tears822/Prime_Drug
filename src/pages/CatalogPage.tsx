@@ -1,95 +1,247 @@
 import { useState } from "react";
 import { Filter, Sparkles } from "lucide-react";
+import { ThreeDVial } from "@/components/ThreeDVial";
 
 const products = [
+  // Injectables
+  {
+    name: "Test E 250",
+    subtitle: "Testosterone Enanthate",
+    category: "vials",
+    dosage: "250mg/ml",
+    color: "#2563eb",
+    has3D: true
+  },
+  {
+    name: "Test C 200",
+    subtitle: "Testosterone Cypionate",
+    category: "vials",
+    dosage: "200mg/ml",
+    color: "#1e40af",
+    has3D: true
+  },
+  {
+    name: "Test P 100",
+    subtitle: "Testosterone Propionate",
+    category: "vials",
+    dosage: "100mg/ml",
+    color: "#3b82f6",
+    has3D: true
+  },
+  {
+    name: "Sustanon 250",
+    subtitle: "Testosterone Blend",
+    category: "vials",
+    dosage: "250mg/ml",
+    color: "#60a5fa",
+    has3D: true
+  },
   {
     name: "Bold 200",
     subtitle: "Boldenone Undecylenate",
-    image: "/collagen-peptides.png",
     category: "vials",
-    dosage: "200mg/ml"
+    dosage: "200mg/ml",
+    color: "#7c3aed",
+    has3D: true
   },
   {
     name: "Deca 200",
     subtitle: "Nandrolone Decanoate",
-    image: "/collagen-peptides.png",
     category: "vials",
-    dosage: "200mg/ml"
-  },
-  {
-    name: "Masteron E 200",
-    subtitle: "Drostanolone Enanthate",
-    image: "/collagen-peptides.png",
-    category: "vials",
-    dosage: "200mg/ml"
-  },
-  {
-    name: "Masteron P 100",
-    subtitle: "Drostanolone Propionate",
-    image: "/collagen-peptides.png",
-    category: "vials",
-    dosage: "100mg/ml"
+    dosage: "200mg/ml",
+    color: "#8b5cf6",
+    has3D: true
   },
   {
     name: "NPP 100",
     subtitle: "Nandrolone Phenylpropionate",
-    image: "/collagen-peptides.png",
     category: "vials",
-    dosage: "100mg/ml"
+    dosage: "100mg/ml",
+    color: "#a78bfa",
+    has3D: true
+  },
+  {
+    name: "Tren A 100",
+    subtitle: "Trenbolone Acetate",
+    category: "vials",
+    dosage: "100mg/ml",
+    color: "#dc2626",
+    has3D: true
+  },
+  {
+    name: "Tren E 200",
+    subtitle: "Trenbolone Enanthate",
+    category: "vials",
+    dosage: "200mg/ml",
+    color: "#ef4444",
+    has3D: true
+  },
+  {
+    name: "Masteron P 100",
+    subtitle: "Drostanolone Propionate",
+    category: "vials",
+    dosage: "100mg/ml",
+    color: "#059669",
+    has3D: true
+  },
+  {
+    name: "Masteron E 200",
+    subtitle: "Drostanolone Enanthate",
+    category: "vials",
+    dosage: "200mg/ml",
+    color: "#10b981",
+    has3D: true
   },
   {
     name: "Primo 100",
     subtitle: "Methenolone Enanthate",
-    image: "/collagen-peptides.png",
     category: "vials",
-    dosage: "100mg/ml"
+    dosage: "100mg/ml",
+    color: "#14b8a6",
+    has3D: true
   },
+  
+  // Peptides
+  {
+    name: "HGH 10IU",
+    subtitle: "Human Growth Hormone",
+    category: "peptides",
+    dosage: "10IU/vial",
+    color: "#f97316",
+    has3D: true
+  },
+  {
+    name: "IGF-1 LR3",
+    subtitle: "Insulin Growth Factor",
+    category: "peptides",
+    dosage: "1mg/vial",
+    color: "#fb923c",
+    has3D: true
+  },
+  {
+    name: "CJC-1295",
+    subtitle: "Growth Hormone Peptide",
+    category: "peptides",
+    dosage: "2mg/vial",
+    color: "#fdba74",
+    has3D: true
+  },
+  {
+    name: "Ipamorelin",
+    subtitle: "GHRP Peptide",
+    category: "peptides",
+    dosage: "2mg/vial",
+    color: "#fbbf24",
+    has3D: true
+  },
+  {
+    name: "BPC-157",
+    subtitle: "Body Protection Compound",
+    category: "peptides",
+    dosage: "5mg/vial",
+    color: "#facc15",
+    has3D: true
+  },
+  {
+    name: "TB-500",
+    subtitle: "Thymosin Beta-4",
+    category: "peptides",
+    dosage: "2mg/vial",
+    color: "#fde047",
+    has3D: true
+  },
+  {
+    name: "Melanotan II",
+    subtitle: "Melanocyte Stimulating",
+    category: "peptides",
+    dosage: "10mg/vial",
+    color: "#a16207",
+    has3D: true
+  },
+  {
+    name: "PT-141",
+    subtitle: "Bremelanotide",
+    category: "peptides",
+    dosage: "10mg/vial",
+    color: "#ca8a04",
+    has3D: true
+  },
+  
+  // Tablets
   {
     name: "Anadrol 50",
     subtitle: "Oxymetholone",
-    image: "/collagen-peptides.png",
     category: "tablets",
-    dosage: "50mg"
+    dosage: "50mg",
+    has3D: false
   },
   {
     name: "Anavar 10",
     subtitle: "Oxandrolone",
-    image: "/collagen-peptides.png",
     category: "tablets",
-    dosage: "10mg"
+    dosage: "10mg",
+    has3D: false
   },
   {
-    name: "Andarine 25",
-    subtitle: "S-4",
-    image: "/collagen-peptides.png",
+    name: "Dianabol 10",
+    subtitle: "Methandienone",
     category: "tablets",
-    dosage: "25mg"
+    dosage: "10mg",
+    has3D: false
+  },
+  {
+    name: "Winstrol 10",
+    subtitle: "Stanozolol",
+    category: "tablets",
+    dosage: "10mg",
+    has3D: false
+  },
+  {
+    name: "Turinabol 10",
+    subtitle: "Chlorodehydromethyltestosterone",
+    category: "tablets",
+    dosage: "10mg",
+    has3D: false
+  },
+  {
+    name: "Superdrol 10",
+    subtitle: "Methasterone",
+    category: "tablets",
+    dosage: "10mg",
+    has3D: false
   },
   {
     name: "Arimidex 1",
     subtitle: "Anastrozole",
-    image: "/collagen-peptides.png",
     category: "tablets",
-    dosage: "1mg"
+    dosage: "1mg",
+    has3D: false
   },
   {
-    name: "Cardarine 10",
-    subtitle: "GW-501516",
-    image: "/collagen-peptides.png",
+    name: "Nolvadex 20",
+    subtitle: "Tamoxifen",
     category: "tablets",
-    dosage: "10mg"
+    dosage: "20mg",
+    has3D: false
+  },
+  {
+    name: "Clomid 50",
+    subtitle: "Clomiphene",
+    category: "tablets",
+    dosage: "50mg",
+    has3D: false
   },
   {
     name: "Cialis 20",
     subtitle: "Tadalafil",
-    image: "/collagen-peptides.png",
     category: "tablets",
-    dosage: "20mg"
+    dosage: "20mg",
+    has3D: false
   },
 ];
 
 export const CatalogPage = () => {
-  const [filter, setFilter] = useState<"all" | "vials" | "tablets">("all");
+  const [filter, setFilter] = useState<"all" | "vials" | "peptides" | "tablets">("all");
 
   const filteredProducts = filter === "all"
     ? products
@@ -100,7 +252,7 @@ export const CatalogPage = () => {
       <div className="grid lg:grid-cols-[280px_1fr] gap-10">
         <aside className="stripe-card rounded-[32px] p-8 space-y-10">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-gray-400">AR Protocols</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gray-400">Prime Protocols</p>
             <h1 className="text-3xl font-heading font-bold mt-3">Complete Product Library</h1>
             <p className="text-sm text-gray-500 mt-3">
               Choose your format, review lot consistency, and plan your cycle with legitimate sources.
@@ -114,7 +266,8 @@ export const CatalogPage = () => {
             {[
               { key: "all", label: "All releases" },
               { key: "vials", label: "Injectables · Vials" },
-              { key: "tablets", label: "Tablets · SARMs" },
+              { key: "peptides", label: "Peptides · HGH" },
+              { key: "tablets", label: "Tablets · Orals" },
             ].map((option) => (
               <button
                 key={option.key}
@@ -141,7 +294,7 @@ export const CatalogPage = () => {
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-gray-400">Currently viewing</p>
               <h2 className="text-2xl font-heading font-bold mt-2">
-                {filter === "all" ? "Entire catalog" : filter === "vials" ? "Injectable Vials" : "Tablet Protocols"}
+                {filter === "all" ? "Entire catalog" : filter === "vials" ? "Injectable Vials" : filter === "peptides" ? "Peptide Protocols" : "Tablet Protocols"}
               </h2>
             </div>
             <span className="inline-flex items-center text-sm text-gray-500 bg-white border border-gray-200 rounded-full px-4 py-1.5 gap-2">
@@ -166,12 +319,21 @@ export const CatalogPage = () => {
                   </div>
                   <h3 className="text-2xl font-heading font-bold">{product.name}</h3>
                   <p className="text-sm text-gray-500">{product.subtitle}</p>
-                  <div className="h-44 bg-gradient-to-br from-brand-gray to-white rounded-2xl border border-dashed border-brand-blue/20 flex items-center justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
+                  <div className="h-64 bg-gradient-to-br from-brand-gray to-white rounded-2xl border border-dashed border-brand-blue/20 overflow-hidden">
+                    {product.has3D ? (
+                      <ThreeDVial color={product.color} label={product.name} autoRotate />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center space-y-2">
+                          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-brand-blue/20 to-brand-blue/40 flex items-center justify-center">
+                            <span className="text-3xl font-heading font-bold text-brand-blue">
+                              {product.dosage.match(/\d+/)?.[0]}
+                            </span>
+                          </div>
+                          <p className="text-xs uppercase tracking-wider text-gray-400">Tablet</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </article>

@@ -67,7 +67,7 @@ export const ContactPage = () => {
           </div>
           <div className="space-y-6">
             {[
-              { icon: Mail, label: "Lab & verification", value: "verify@arpharma.net" },
+              { icon: Mail, label: "Lab & verification", value: "verify@primelaboratory.com" },
               { icon: Phone, label: "Global logistics", value: "+1 (323) 555 8902" },
               { icon: MapPin, label: "HQ", value: "Cayman Bio Park · Building 04" },
             ].map((item) => (

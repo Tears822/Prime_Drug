@@ -22,11 +22,11 @@ export const Header = () => {
           <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/logo.png" 
-              alt="AR PHARMA" 
+              alt="Prime Laboratory" 
               className="h-12 w-auto"
             />
             <div className="flex flex-col">
-              <span className="text-2xl font-heading font-bold text-brand-blue">AR PHARMA</span>
+              <span className="text-2xl font-heading font-bold text-brand-blue">Prime Laboratory</span>
               <span className="text-xs text-brand-gray-dark uppercase tracking-wider">High Performance</span>
             </div>
           </Link>

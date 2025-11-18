@@ -8,7 +8,7 @@ export const PackagingShowcase = () => {
         <div className="relative rounded-[28px] border border-brand-blue/10 overflow-hidden bg-gradient-to-br from-brand-blue/5 to-white">
           <img
             src="/IMG_1270.png"
-            alt="AR PHARMA dieline"
+                alt="Prime Laboratory dieline"
             className="w-full h-auto object-contain"
             loading="lazy"
           />

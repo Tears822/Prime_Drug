@@ -41,13 +41,13 @@ export const HomePage = () => {
         <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <span className="inline-flex items-center text-sm uppercase tracking-[0.3em] text-brand-blue border border-brand-blue/20 rounded-full px-4 py-1">
-              AR High Performance Program
+              Prime High Performance Program
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight canon-stripe pl-10">
               Pharmaceutical-grade fuel for people who outgrow the ordinary.
             </h1>
             <p className="text-lg text-gray-600 max-w-xl">
-              A.R PHARMA engineers bold cycles, anti-counterfeit packaging, and instant QR authentication for athletes chasing legitimate results.
+              Prime Laboratory engineers bold cycles, anti-counterfeit packaging, and instant QR authentication for athletes chasing legitimate results.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -141,7 +141,7 @@ export const HomePage = () => {
                 <p className="text-sm text-white/70 mt-2 leading-relaxed">
                   {index === 0 && "Reveal serialized code hidden beneath tamper label"}
                   {index === 1 && "Use QR to jump straight to the verification console"}
-                  {index === 2 && "Match code against AR PHARMA's whitelist instantly"}
+                  {index === 2 && "Match code against Prime Laboratory's whitelist instantly"}
                   {index === 3 && "Get timestamp + lot info for your personal record"}
                 </p>
               </div>

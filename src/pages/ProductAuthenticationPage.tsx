@@ -39,8 +39,8 @@ export const ProductAuthenticationPage = () => {
       setResult({
         status: "success",
         message: verification.product 
-          ? `✓ Product Verified! This is an authentic AR PHARMA product: ${verification.product}`
-          : "✓ Product Verified! This is an authentic AR PHARMA product.",
+          ? `✓ Product Verified! This is an authentic Prime Laboratory product: ${verification.product}`
+          : "✓ Product Verified! This is an authentic Prime Laboratory product.",
         product: verification.product
       });
     } else {
@@ -84,7 +84,7 @@ export const ProductAuthenticationPage = () => {
         <section className="space-y-10">
           <header className="space-y-4">
             <span className="text-xs uppercase tracking-[0.4em] text-gray-400">Authentication Console</span>
-            <h1 className="text-4xl font-heading font-bold">Verify your AR PHARMA product in under 10 seconds.</h1>
+            <h1 className="text-4xl font-heading font-bold">Verify your Prime Laboratory product in under 10 seconds.</h1>
             <p className="text-gray-600 max-w-2xl">
               The crown label conceals a serialized code paired directly with our lab’s whitelist. Scratch, enter, confirm. Counterfeits are rejected instantly.
             </p>
@@ -180,8 +180,8 @@ export const ProductAuthenticationPage = () => {
                 <h3 className="font-semibold text-yellow-900 mb-1">Important notice</h3>
                 <p className="text-sm text-yellow-800">
                   Missing or rejected codes indicate counterfeit risk. Report issues immediately to{" "}
-                  <a href="mailto:verify@arpharma.net" className="font-semibold underline">
-                    verify@arpharma.net
+                  <a href="mailto:verify@primelaboratory.com" className="font-semibold underline">
+                    verify@primelaboratory.com
                   </a>
                 </p>
               </div>

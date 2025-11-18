@@ -35,12 +35,12 @@ export const AboutPage = () => {
     <div className="container mx-auto px-6 py-20 space-y-16">
       <section className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
-          <span className="text-xs uppercase tracking-[0.4em] text-gray-400">Inside AR PHARMA</span>
+          <span className="text-xs uppercase tracking-[0.4em] text-gray-400">Inside Prime Laboratory</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold canon-stripe pl-10">
             We design pharmaceutical-grade fuel for people who refuse shortcuts.
           </h1>
           <p className="text-gray-600">
-            Founded by chemists and pro coaches, AR PHARMA closes the gap between sterile lab production and real-world strength cycles.
+            Founded by chemists and pro coaches, Prime Laboratory closes the gap between sterile lab production and real-world strength cycles.
             Every batch is traceable, every carton is authenticated, and every release is athlete-tested.
           </p>
         </div>
@@ -53,7 +53,7 @@ export const AboutPage = () => {
             <div className="absolute inset-y-6 left-10 w-1.5 bg-gradient-to-b from-brand-blue-light to-brand-blue rounded-full" />
             <div className="absolute inset-y-6 left-16 w-1 bg-gradient-to-b from-brand-blue/20 to-brand-blue-dark/60 rounded-full" />
             <div className="text-center space-y-3">
-              <h3 className="text-3xl font-heading font-bold">AR PRIME</h3>
+              <h3 className="text-3xl font-heading font-bold">PRIME</h3>
               <p className="text-sm tracking-[0.4em] text-gray-400 uppercase">250mg / ml</p>
               <p className="text-gray-500 text-sm">Testosterone Enanthate · Pharmaceutical lot</p>
             </div>

@@ -11,11 +11,11 @@ export const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="/logo.png" 
-                alt="AR PHARMA" 
+                alt="Prime Laboratory" 
                 className="h-10 w-auto"
               />
               <div className="flex flex-col">
-                <span className="text-xl font-heading font-bold text-brand-blue">AR PHARMA</span>
+                <span className="text-xl font-heading font-bold text-brand-blue">Prime Laboratory</span>
                 <span className="text-xs text-brand-gray-dark uppercase tracking-wider">High Performance</span>
               </div>
             </div>
@@ -24,7 +24,7 @@ export const Footer = () => {
               Reach your maximum potential with scientifically-backed products.
             </p>
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} AR PHARMA. All rights reserved.
+              © {new Date().getFullYear()} Prime Laboratory. All rights reserved.
             </p>
           </div>
 
