@@ -7,6 +7,7 @@ import { CatalogPage } from "@/pages/CatalogPage";
 import { AboutPage } from "@/pages/AboutPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { ProductAuthenticationPage } from "@/pages/ProductAuthenticationPage";
+import { CodeGeneratorPage } from "@/pages/CodeGeneratorPage";
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/verify" element={<ProductAuthenticationPage />} />
+            <Route path="/admin/codes" element={<CodeGeneratorPage />} />
           </Routes>
         </main>
         <Footer />

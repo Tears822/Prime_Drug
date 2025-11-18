@@ -1,17 +1,31 @@
-import { useState } from "react";
-import { ShieldCheck, CheckCircle, XCircle, AlertCircle, QrCode } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { ShieldCheck, CheckCircle, XCircle, AlertCircle, QrCode, Camera } from "lucide-react";
+import { verifyCode } from "@/data/authCodes";
+import { QRScanner } from "@/components/QRScanner";
 
 export const ProductAuthenticationPage = () => {
+  const [searchParams] = useSearchParams();
   const [code, setCode] = useState("");
-  const [result, setResult] = useState<{ status: "success" | "error" | "invalid" | null; message: string }>({
+  const [showScanner, setShowScanner] = useState(false);
+  const [result, setResult] = useState<{ status: "success" | "error" | "invalid" | null; message: string; product?: string }>({
     status: null,
     message: ""
   });
 
-  const handleVerify = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (code.length < 6) {
+  // Check for code in URL (from QR scan)
+  useEffect(() => {
+    const urlCode = searchParams.get("code");
+    if (urlCode) {
+      const codeToVerify = urlCode.toUpperCase();
+      setCode(codeToVerify);
+      handleVerifyCode(codeToVerify);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  const handleVerifyCode = (codeToVerify: string) => {
+    if (codeToVerify.length < 6) {
       setResult({
         status: "invalid",
         message: "Please enter a valid authentication code (minimum 6 characters)"
@@ -19,13 +33,15 @@ export const ProductAuthenticationPage = () => {
       return;
     }
 
-    // Simulate verification (In production, this would call an API)
-    const isValid = Math.random() > 0.2; // 80% success rate for demo
+    const verification = verifyCode(codeToVerify);
     
-    if (isValid) {
+    if (verification.valid) {
       setResult({
         status: "success",
-        message: "✓ Product Verified! This is an authentic AR PHARMA product."
+        message: verification.product 
+          ? `✓ Product Verified! This is an authentic AR PHARMA product: ${verification.product}`
+          : "✓ Product Verified! This is an authentic AR PHARMA product.",
+        product: verification.product
       });
     } else {
       setResult({
@@ -33,6 +49,33 @@ export const ProductAuthenticationPage = () => {
         message: "✗ Invalid Code. This product could not be verified. Please contact us if you believe this is an error."
       });
     }
+  };
+
+  const handleVerify = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleVerifyCode(code);
+  };
+
+  const handleScanSuccess = (scannedCode: string) => {
+    // Extract code from URL if scanned QR contains URL
+    let extractedCode = scannedCode;
+    try {
+      const url = new URL(scannedCode);
+      const codeParam = url.searchParams.get("code");
+      if (codeParam) {
+        extractedCode = codeParam;
+      } else if (url.pathname.includes("/verify")) {
+        // If it's just the verify page URL, use manual entry
+        setShowScanner(false);
+        return;
+      }
+    } catch {
+      // Not a URL, use as-is
+    }
+    
+    setCode(extractedCode.toUpperCase());
+    setShowScanner(false);
+    handleVerifyCode(extractedCode.toUpperCase());
   };
 
   return (
@@ -63,13 +106,23 @@ export const ProductAuthenticationPage = () => {
                 />
               </label>
 
-              <button
-                type="submit"
-                className="w-full bg-brand-blue text-white text-lg font-semibold py-4 rounded-2xl hover:bg-brand-blue-dark transition-colors flex items-center justify-center space-x-2"
-              >
-                <ShieldCheck className="h-5 w-5" />
-                <span>Run verification</span>
-              </button>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowScanner(true)}
+                  className="flex-1 bg-white border-2 border-brand-blue text-brand-blue text-lg font-semibold py-4 rounded-2xl hover:bg-brand-blue/5 transition-colors flex items-center justify-center space-x-2"
+                >
+                  <Camera className="h-5 w-5" />
+                  <span>Scan QR</span>
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 bg-brand-blue text-white text-lg font-semibold py-4 rounded-2xl hover:bg-brand-blue-dark transition-colors flex items-center justify-center space-x-2"
+                >
+                  <ShieldCheck className="h-5 w-5" />
+                  <span>Verify</span>
+                </button>
+              </div>
             </form>
 
             {result.status && (
@@ -135,6 +188,13 @@ export const ProductAuthenticationPage = () => {
             </div>
           </div>
         </section>
+
+        {showScanner && (
+          <QRScanner
+            onScanSuccess={handleScanSuccess}
+            onClose={() => setShowScanner(false)}
+          />
+        )}
 
         {/* Packaging peek */}
         <aside className="stripe-card rounded-[40px] p-8 h-fit">
