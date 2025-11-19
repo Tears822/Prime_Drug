@@ -3,22 +3,15 @@ import { Filter, Sparkles } from "lucide-react";
 import { ThreeDVial } from "@/components/ThreeDVial";
 
 const products = [
-  // Injectables
+  // Injectables - OILS with actual product images
   {
     name: "Test E 250",
     subtitle: "Testosterone Enanthate",
     category: "vials",
     dosage: "250mg/ml",
     color: "#2563eb",
-    has3D: true
-  },
-  {
-    name: "Test C 200",
-    subtitle: "Testosterone Cypionate",
-    category: "vials",
-    dosage: "200mg/ml",
-    color: "#1e40af",
-    has3D: true
+    image: "/OILS/TEST.png",
+    has3D: false
   },
   {
     name: "Test P 100",
@@ -26,15 +19,8 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#3b82f6",
-    has3D: true
-  },
-  {
-    name: "Sustanon 250",
-    subtitle: "Testosterone Blend",
-    category: "vials",
-    dosage: "250mg/ml",
-    color: "#60a5fa",
-    has3D: true
+    image: "/OILS/testP.png",
+    has3D: false
   },
   {
     name: "Bold 200",
@@ -42,7 +28,8 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#7c3aed",
-    has3D: true
+    image: "/OILS/BOLD.png",
+    has3D: false
   },
   {
     name: "Deca 200",
@@ -50,7 +37,8 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#8b5cf6",
-    has3D: true
+    image: "/OILS/DECA.png",
+    has3D: false
   },
   {
     name: "NPP 100",
@@ -58,7 +46,8 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#a78bfa",
-    has3D: true
+    image: "/OILS/Nandrolone_phenylpropionate.png",
+    has3D: false
   },
   {
     name: "Tren A 100",
@@ -66,7 +55,8 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#dc2626",
-    has3D: true
+    image: "/OILS/tren_ace.png",
+    has3D: false
   },
   {
     name: "Tren E 200",
@@ -74,7 +64,8 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#ef4444",
-    has3D: true
+    image: "/OILS/tren_enanthate.png",
+    has3D: false
   },
   {
     name: "Masteron P 100",
@@ -82,23 +73,8 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#059669",
-    has3D: true
-  },
-  {
-    name: "Masteron E 200",
-    subtitle: "Drostanolone Enanthate",
-    category: "vials",
-    dosage: "200mg/ml",
-    color: "#10b981",
-    has3D: true
-  },
-  {
-    name: "Primo 100",
-    subtitle: "Methenolone Enanthate",
-    category: "vials",
-    dosage: "100mg/ml",
-    color: "#14b8a6",
-    has3D: true
+    image: "/OILS/MasteronPROP.png",
+    has3D: false
   },
   
   // Peptides
@@ -319,9 +295,15 @@ export const CatalogPage = () => {
                   </div>
                   <h3 className="text-2xl font-heading font-bold">{product.name}</h3>
                   <p className="text-sm text-gray-500">{product.subtitle}</p>
-                  <div className="h-64 bg-gradient-to-br from-brand-gray to-white rounded-2xl border border-dashed border-brand-blue/20 overflow-hidden">
+                  <div className="h-64 bg-gradient-to-br from-brand-gray to-white rounded-2xl border border-dashed border-brand-blue/20 overflow-hidden flex items-center justify-center p-4">
                     {product.has3D ? (
                       <ThreeDVial color={product.color} label={product.name} autoRotate={false} />
+                    ) : product.image ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
                     ) : (
                       <div className="h-full flex items-center justify-center">
                         <div className="text-center space-y-2">
