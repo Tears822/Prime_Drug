@@ -3,15 +3,14 @@ import { Filter, Sparkles } from "lucide-react";
 import { ThreeDVial } from "@/components/ThreeDVial";
 
 const products = [
-  // Injectables - OILS with actual product images
+  // Injectables - 3D Vials
   {
     name: "Test E 250",
     subtitle: "Testosterone Enanthate",
     category: "vials",
     dosage: "250mg/ml",
     color: "#2563eb",
-    image: "/OILS/TEST.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Test P 100",
@@ -19,8 +18,7 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#3b82f6",
-    image: "/OILS/testP.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Bold 200",
@@ -28,8 +26,7 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#7c3aed",
-    image: "/OILS/BOLD.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Deca 200",
@@ -37,8 +34,7 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#8b5cf6",
-    image: "/OILS/DECA.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "NPP 100",
@@ -46,8 +42,7 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#a78bfa",
-    image: "/OILS/Nandrolone_phenylpropionate.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Tren A 100",
@@ -55,8 +50,7 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#dc2626",
-    image: "/OILS/tren_ace.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Tren E 200",
@@ -64,8 +58,7 @@ const products = [
     category: "vials",
     dosage: "200mg/ml",
     color: "#ef4444",
-    image: "/OILS/tren_enanthate.png",
-    has3D: false
+    has3D: true
   },
   {
     name: "Masteron P 100",
@@ -73,8 +66,7 @@ const products = [
     category: "vials",
     dosage: "100mg/ml",
     color: "#059669",
-    image: "/OILS/MasteronPROP.png",
-    has3D: false
+    has3D: true
   },
   
   // Peptides
@@ -143,81 +135,51 @@ const products = [
     has3D: true
   },
   
-  // Tablets
+  // Orals - Tablets/Capsules with actual product images from assets folder
   {
     name: "Anadrol 50",
     subtitle: "Oxymetholone",
-    category: "tablets",
+    category: "oral",
     dosage: "50mg",
+    image: "/assets/ANADROL.png",
     has3D: false
   },
   {
     name: "Anavar 10",
     subtitle: "Oxandrolone",
-    category: "tablets",
+    category: "oral",
     dosage: "10mg",
+    image: "/assets/ANAVAR.png",
     has3D: false
   },
   {
     name: "Dianabol 10",
     subtitle: "Methandienone",
-    category: "tablets",
+    category: "oral",
     dosage: "10mg",
+    image: "/assets/DIANABOL.png",
     has3D: false
   },
   {
     name: "Winstrol 10",
     subtitle: "Stanozolol",
-    category: "tablets",
+    category: "oral",
     dosage: "10mg",
+    image: "/assets/WINSTROL.png",
     has3D: false
   },
   {
-    name: "Turinabol 10",
-    subtitle: "Chlorodehydromethyltestosterone",
-    category: "tablets",
+    name: "Halotestin 10",
+    subtitle: "Fluoxymesterone",
+    category: "oral",
     dosage: "10mg",
-    has3D: false
-  },
-  {
-    name: "Superdrol 10",
-    subtitle: "Methasterone",
-    category: "tablets",
-    dosage: "10mg",
-    has3D: false
-  },
-  {
-    name: "Arimidex 1",
-    subtitle: "Anastrozole",
-    category: "tablets",
-    dosage: "1mg",
-    has3D: false
-  },
-  {
-    name: "Nolvadex 20",
-    subtitle: "Tamoxifen",
-    category: "tablets",
-    dosage: "20mg",
-    has3D: false
-  },
-  {
-    name: "Clomid 50",
-    subtitle: "Clomiphene",
-    category: "tablets",
-    dosage: "50mg",
-    has3D: false
-  },
-  {
-    name: "Cialis 20",
-    subtitle: "Tadalafil",
-    category: "tablets",
-    dosage: "20mg",
+    image: "/assets/HALO.png",
     has3D: false
   },
 ];
 
 export const CatalogPage = () => {
-  const [filter, setFilter] = useState<"all" | "vials" | "peptides" | "tablets">("all");
+  const [filter, setFilter] = useState<"all" | "vials" | "peptides" | "oral">("all");
 
   const filteredProducts = filter === "all"
     ? products
@@ -239,12 +201,12 @@ export const CatalogPage = () => {
             <p className="text-xs uppercase tracking-[0.3em] text-gray-400 flex items-center gap-2">
               <Filter className="h-4 w-4 text-brand-blue" /> Filter stack
             </p>
-            {[
-              { key: "all", label: "All releases" },
-              { key: "vials", label: "Injectables · Vials" },
-              { key: "peptides", label: "Peptides · HGH" },
-              { key: "tablets", label: "Tablets · Orals" },
-            ].map((option) => (
+              {[
+                { key: "all", label: "All releases" },
+                { key: "vials", label: "Injectables · Vials" },
+                { key: "peptides", label: "Peptides · HGH" },
+                { key: "oral", label: "Tablets · Orals" },
+              ].map((option) => (
               <button
                 key={option.key}
                 onClick={() => setFilter(option.key as typeof filter)}
@@ -269,9 +231,9 @@ export const CatalogPage = () => {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-gray-400">Currently viewing</p>
-              <h2 className="text-2xl font-heading font-bold mt-2">
-                {filter === "all" ? "Entire catalog" : filter === "vials" ? "Injectable Vials" : filter === "peptides" ? "Peptide Protocols" : "Tablet Protocols"}
-              </h2>
+                  <h2 className="text-2xl font-heading font-bold mt-2">
+                    {filter === "all" ? "Entire catalog" : filter === "vials" ? "Injectable Vials" : filter === "peptides" ? "Peptide Protocols" : "Oral Protocols"}
+                  </h2>
             </div>
             <span className="inline-flex items-center text-sm text-gray-500 bg-white border border-gray-200 rounded-full px-4 py-1.5 gap-2">
               <Sparkles className="h-4 w-4 text-brand-blue" />
