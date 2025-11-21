@@ -74,24 +74,12 @@ export const HomePage = () => {
           </div>
 
           {/* Product Showcase */}
-          <div className="flex items-center justify-center">
-            <div className="relative bg-gradient-to-br from-[#a4b86b] to-[#8a9d4d] rounded-[32px] p-12 shadow-2xl max-w-2xl w-full">
-              <div className="text-center space-y-6">
-                <h3 className="text-2xl font-heading font-bold text-gray-900">
-                  NPP 100 - Nandrolone Phenylpropionate
-                </h3>
-                <div className="flex items-center justify-center py-8">
-                  <img 
-                    src="/assets/Nandrolone phenylpropionate.png" 
-                    alt="NPP 100 - Nandrolone Phenylpropionate"
-                    className="w-auto h-48 object-contain drop-shadow-2xl"
-                  />
-                </div>
-                <p className="text-sm uppercase tracking-[0.3em] text-gray-700 font-semibold">
-                  PREMIUM PHARMACEUTICAL GRADE
-                </p>
-              </div>
-            </div>
+          <div className="flex items-center justify-center -mt-40">
+            <img 
+              src="/assets/Nandrolone phenylpropionate.png" 
+              alt="NPP 100 - Nandrolone Phenylpropionate"
+              className="w-full h-auto max-w-xs object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </section>
