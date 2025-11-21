@@ -3,70 +3,70 @@ import { Filter, Sparkles } from "lucide-react";
 import { ThreeDVial } from "@/components/ThreeDVial";
 
 const products = [
-  // Injectables - 3D Vials
+  // Injectables - Vials with actual product images
   {
     name: "Test E 250",
     subtitle: "Testosterone Enanthate",
     category: "vials",
     dosage: "250mg/ml",
-    color: "#2563eb",
-    has3D: true
+    image: "/assets/TEST.png",
+    has3D: false
   },
   {
     name: "Test P 100",
     subtitle: "Testosterone Propionate",
     category: "vials",
     dosage: "100mg/ml",
-    color: "#3b82f6",
-    has3D: true
+    image: "/assets/testP.png",
+    has3D: false
   },
   {
     name: "Bold 200",
     subtitle: "Boldenone Undecylenate",
     category: "vials",
     dosage: "200mg/ml",
-    color: "#7c3aed",
-    has3D: true
+    image: "/assets/BOLD.png",
+    has3D: false
   },
   {
     name: "Deca 200",
     subtitle: "Nandrolone Decanoate",
     category: "vials",
     dosage: "200mg/ml",
-    color: "#8b5cf6",
-    has3D: true
+    image: "/assets/DECA.png",
+    has3D: false
   },
   {
     name: "NPP 100",
     subtitle: "Nandrolone Phenylpropionate",
     category: "vials",
     dosage: "100mg/ml",
-    color: "#a78bfa",
-    has3D: true
+    image: "/assets/Nandrolone phenylpropionate.png",
+    has3D: false
   },
   {
     name: "Tren A 100",
     subtitle: "Trenbolone Acetate",
     category: "vials",
     dosage: "100mg/ml",
-    color: "#dc2626",
-    has3D: true
+    image: "/assets/tren ace.png",
+    has3D: false
   },
   {
     name: "Tren E 200",
     subtitle: "Trenbolone Enanthate",
     category: "vials",
     dosage: "200mg/ml",
-    color: "#ef4444",
-    has3D: true
+    image: "/assets/tren enanthate.png",
+    has3D: false
   },
   {
     name: "Masteron P 100",
     subtitle: "Drostanolone Propionate",
     category: "vials",
     dosage: "100mg/ml",
-    color: "#059669",
-    has3D: true
+    image: "/assets/MasteronPROP.png",
+    has3D: false
   },
   
   // Peptides
