@@ -101,14 +101,7 @@ const products = [
     image: "/peptides/TB500.png",
     has3D: false
   },
-  {
-    name: "MT-2 10mg",
-    subtitle: "Melanotan II",
-    category: "peptides",
-    dosage: "10mg/vial",
-    image: "/peptides/MT2.png",
-    has3D: false
-  },
+
   {
     name: "MT-2 10mg",
     subtitle: "Melanotan II",
@@ -123,14 +116,6 @@ const products = [
     category: "peptides",
     dosage: "5mg/vial",
     image: "/peptides/GHRP6.png",
-    has3D: false
-  },
-  {
-    name: "GHK-Cu 100mg",
-    subtitle: "Copper Peptide",
-    category: "peptides",
-    dosage: "50mg/vial",
-    image: "/peptides/GHKCU.png",
     has3D: false
   },
   {
