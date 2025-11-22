@@ -110,6 +110,14 @@ const products = [
     has3D: false
   },
   {
+    name: "Melanotan II 20mg",
+    subtitle: "Tanning Peptide (High Dose)",
+    category: "peptides",
+    dosage: "20mg/vial",
+    image: "/peptides/mt2_2.png",
+    has3D: false
+  },
+  {
     name: "GHRP-6",
     subtitle: "Growth Hormone Release",
     category: "peptides",
@@ -123,6 +131,14 @@ const products = [
     category: "peptides",
     dosage: "5mg/vial",
     image: "/peptides/GHKCU.png",
+    has3D: false
+  },
+  {
+    name: "GHK-Cu 10mg",
+    subtitle: "Copper Peptide (High Dose)",
+    category: "peptides",
+    dosage: "10mg/vial",
+    image: "/peptides/CU.png",
     has3D: false
   },
   {
@@ -147,6 +163,22 @@ const products = [
     category: "peptides",
     dosage: "5mg/vial",
     image: "/peptides/semax.png",
+    has3D: false
+  },
+  {
+    name: "IGF-1 LR3",
+    subtitle: "Insulin-Like Growth Factor",
+    category: "peptides",
+    dosage: "1mg/vial",
+    image: "/peptides/IGF_1.png",
+    has3D: false
+  },
+  {
+    name: "HCG 5000IU",
+    subtitle: "Human Chorionic Gonadotropin",
+    category: "peptides",
+    dosage: "5000IU/vial",
+    image: "/peptides/HCG.png",
     has3D: false
   },
   
