@@ -86,18 +86,18 @@ const products = [
     has3D: false
   },
   {
-    name: "BPC-157 5mg",
+    name: "BPC-157 10mg",
     subtitle: "Body Protection Compound",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/BPC157.png",
     has3D: false
   },
   {
-    name: "TB-500 5mg",
+    name: "TB-500 10mg",
     subtitle: "Thymosin Beta-4",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/TB500.png",
     has3D: false
   },
@@ -111,10 +111,10 @@ const products = [
     has3D: false
   },
   {
-    name: "GHRP-6 5mg",
+    name: "GHRP-6 10mg",
     subtitle: "Growth Hormone Release Peptide",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/GHRP6.png",
     has3D: false
   },
@@ -122,7 +122,7 @@ const products = [
     name: "GHK-Cu 100mg",
     subtitle: "Copper Peptide",
     category: "peptides",
-    dosage: "50mg/vial",
+    dosage: "100mg/vial",
     image: "/peptides/CU.png",
     has3D: false
   },
@@ -151,14 +151,6 @@ const products = [
     has3D: false
   },
   {
-    name: "IGF-1 LR3 1mg",
-    subtitle: "Insulin-Like Growth Factor",
-    category: "peptides",
-    dosage: "1mg/vial",
-    image: "/peptides/IGF_1.png",
-    has3D: false
-  },
-  {
     name: "HCG 5000IU",
     subtitle: "Human Chorionic Gonadotropin",
     category: "peptides",
@@ -174,15 +166,6 @@ const products = [
     image: "/peptides/IGF 1.png",
     has3D: false
   },
-  {
-    name: "MT-2 10mg",
-    subtitle: "Melanotan II",
-    category: "peptides",
-    dosage: "10mg/vial",
-    image: "/peptides/mt2 (2).png",
-    has3D: false
-  },
-  
   // Orals - Tablets/Capsules with actual product images
   {
     name: "Anadrol 50",
