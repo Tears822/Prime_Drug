@@ -126,7 +126,7 @@ const products = [
     has3D: false
   },
   {
-    name: "GHK-Cu 50mg",
+    name: "GHK-Cu 100mg",
     subtitle: "Copper Peptide",
     category: "peptides",
     dosage: "50mg/vial",
@@ -134,7 +134,7 @@ const products = [
     has3D: false
   },
   {
-    name: "GHK-Cu 50mg",
+    name: "GHK-Cu 100mg",
     subtitle: "Copper Peptide",
     category: "peptides",
     dosage: "50mg/vial",
