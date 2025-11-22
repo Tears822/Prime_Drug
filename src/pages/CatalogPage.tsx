@@ -4,7 +4,7 @@ import { Filter, Sparkles } from "lucide-react";
 const products = [
   // Injectables - Vials with actual product images
   {
-    name: "Test E 250",
+    name: "Test E 250mg",
     subtitle: "Testosterone Enanthate",
     category: "vials",
     dosage: "250mg/ml",
@@ -12,7 +12,7 @@ const products = [
     has3D: false
   },
   {
-    name: "Test P 100",
+    name: "Test P 100mg",
     subtitle: "Testosterone Propionate",
     category: "vials",
     dosage: "100mg/ml",
@@ -20,23 +20,23 @@ const products = [
     has3D: false
   },
   {
-    name: "Bold 200",
+    name: "Bold 300mg",
     subtitle: "Boldenone Undecylenate",
     category: "vials",
-    dosage: "200mg/ml",
+    dosage: "300mg/ml",
     image: "/injectables/BOLD.png",
     has3D: false
   },
   {
-    name: "Deca 200",
+    name: "Deca 250mg",
     subtitle: "Nandrolone Decanoate",
     category: "vials",
-    dosage: "200mg/ml",
+    dosage: "250mg/ml",
     image: "/injectables/DECA.png",
     has3D: false
   },
   {
-    name: "NPP 100",
+    name: "NPP 100mg",
     subtitle: "Nandrolone Phenylpropionate",
     category: "vials",
     dosage: "100mg/ml",
@@ -44,7 +44,7 @@ const products = [
     has3D: false
   },
   {
-    name: "Tren A 100",
+    name: "Tren A 100mg",
     subtitle: "Trenbolone Acetate",
     category: "vials",
     dosage: "100mg/ml",
@@ -52,7 +52,7 @@ const products = [
     has3D: false
   },
   {
-    name: "Tren E 200",
+    name: "Tren E 200mg",
     subtitle: "Trenbolone Enanthate",
     category: "vials",
     dosage: "200mg/ml",
@@ -60,7 +60,7 @@ const products = [
     has3D: false
   },
   {
-    name: "Masteron P 100",
+    name: "Masteron P 100mg",
     subtitle: "Drostanolone Propionate",
     category: "vials",
     dosage: "100mg/ml",
@@ -70,15 +70,15 @@ const products = [
   
   // Peptides - with actual product images
   {
-    name: "HGH 10IU",
+    name: "HGH 24IU",
     subtitle: "Human Growth Hormone",
     category: "peptides",
-    dosage: "10IU/vial",
+    dosage: "24IU/vial",
     image: "/peptides/HGH.png",
     has3D: false
   },
   {
-    name: "CJC-1295",
+    name: "CJC-1295 5mg",
     subtitle: "Growth Hormone Peptide",
     category: "peptides",
     dosage: "5mg/vial",
@@ -86,7 +86,7 @@ const products = [
     has3D: false
   },
   {
-    name: "BPC-157",
+    name: "BPC-157 5mg",
     subtitle: "Body Protection Compound",
     category: "peptides",
     dosage: "5mg/vial",
@@ -94,7 +94,7 @@ const products = [
     has3D: false
   },
   {
-    name: "TB-500",
+    name: "TB-500 5mg",
     subtitle: "Thymosin Beta-4",
     category: "peptides",
     dosage: "5mg/vial",
@@ -102,55 +102,55 @@ const products = [
     has3D: false
   },
   {
-    name: "Melanotan II",
-    subtitle: "Tanning Peptide",
+    name: "MT-2 10mg",
+    subtitle: "Melanotan II",
     category: "peptides",
     dosage: "10mg/vial",
     image: "/peptides/MT2.png",
     has3D: false
   },
   {
-    name: "Melanotan II 20mg",
-    subtitle: "Tanning Peptide (High Dose)",
+    name: "MT-2 10mg",
+    subtitle: "Melanotan II",
     category: "peptides",
-    dosage: "20mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/mt2_2.png",
     has3D: false
   },
   {
-    name: "GHRP-6",
-    subtitle: "Growth Hormone Release",
+    name: "GHRP-6 5mg",
+    subtitle: "Growth Hormone Release Peptide",
     category: "peptides",
     dosage: "5mg/vial",
     image: "/peptides/GHRP6.png",
     has3D: false
   },
   {
-    name: "GHK-Cu",
+    name: "GHK-Cu 50mg",
     subtitle: "Copper Peptide",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "50mg/vial",
     image: "/peptides/GHKCU.png",
     has3D: false
   },
   {
-    name: "GHK-Cu 10mg",
-    subtitle: "Copper Peptide (High Dose)",
+    name: "GHK-Cu 50mg",
+    subtitle: "Copper Peptide",
     category: "peptides",
-    dosage: "10mg/vial",
+    dosage: "50mg/vial",
     image: "/peptides/CU.png",
     has3D: false
   },
   {
-    name: "KPV",
+    name: "KPV 10mg",
     subtitle: "Anti-Inflammatory Peptide",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/KPV.png",
     has3D: false
   },
   {
-    name: "Retatrutide",
+    name: "Retatrutide 10mg",
     subtitle: "GIP/GLP-1/Glucagon Agonist",
     category: "peptides",
     dosage: "10mg/vial",
@@ -158,15 +158,15 @@ const products = [
     has3D: false
   },
   {
-    name: "Semax",
+    name: "Semax 10mg",
     subtitle: "Nootropic Peptide",
     category: "peptides",
-    dosage: "5mg/vial",
+    dosage: "10mg/vial",
     image: "/peptides/semax.png",
     has3D: false
   },
   {
-    name: "IGF-1 LR3",
+    name: "IGF-1 LR3 1mg",
     subtitle: "Insulin-Like Growth Factor",
     category: "peptides",
     dosage: "1mg/vial",
