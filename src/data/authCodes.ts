@@ -3113,7 +3113,7 @@ export const authCodes: Record<string, AuthCode> = {
   "AEM5XH": { code: "AEM5XH", product: "HGH 24IU", verified: false },
 };
 
-export const verifyCode = (code: string): { valid: boolean; product?: string } => {
+export const verifyCode = (code: string): { valid: boolean; product?: string; alreadyVerified?: boolean; verifiedAt?: string } => {
   const normalizedCode = code.toUpperCase().trim();
   const authCode = authCodes[normalizedCode];
   
@@ -3122,7 +3122,7 @@ export const verifyCode = (code: string): { valid: boolean; product?: string } =
   }
   
   if (authCode.verified) {
-    return { valid: false }; // Already verified (one-time use)
+    return { valid: false, alreadyVerified: true, product: authCode.product, verifiedAt: authCode.verifiedAt }; // Already verified (one-time use)
   }
   
   // Mark as verified

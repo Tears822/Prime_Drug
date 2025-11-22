@@ -8,7 +8,7 @@ export const ProductAuthenticationPage = () => {
   const [searchParams] = useSearchParams();
   const [code, setCode] = useState("");
   const [showScanner, setShowScanner] = useState(false);
-  const [result, setResult] = useState<{ status: "success" | "error" | "invalid" | null; message: string; product?: string }>({
+  const [result, setResult] = useState<{ status: "success" | "error" | "invalid" | "alreadyVerified" | null; message: string; product?: string }>({
     status: null,
     message: ""
   });
@@ -41,6 +41,15 @@ export const ProductAuthenticationPage = () => {
         message: verification.product 
           ? `✓ Product Verified! This is an authentic Prime Laboratory product: ${verification.product}`
           : "✓ Product Verified! This is an authentic Prime Laboratory product.",
+        product: verification.product
+      });
+    } else if (verification.alreadyVerified) {
+      const verifiedDate = verification.verifiedAt ? new Date(verification.verifiedAt).toLocaleString() : "previously";
+      setResult({
+        status: "alreadyVerified",
+        message: verification.product
+          ? `⚠ Product Already Verified. This code for "${verification.product}" was already used on ${verifiedDate}. Each code can only be verified once for security.`
+          : `⚠ Product Already Verified. This code was already used on ${verifiedDate}. Each code can only be verified once for security.`,
         product: verification.product
       });
     } else {
@@ -132,12 +141,15 @@ export const ProductAuthenticationPage = () => {
                     ? "border-green-500 bg-green-50"
                     : result.status === "error"
                     ? "border-red-500 bg-red-50"
+                    : result.status === "alreadyVerified"
+                    ? "border-orange-500 bg-orange-50"
                     : "border-yellow-500 bg-yellow-50"
                 }`}
               >
                 <div className="flex items-start space-x-3">
                   {result.status === "success" && <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />}
                   {result.status === "error" && <XCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />}
+                  {result.status === "alreadyVerified" && <AlertCircle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-0.5" />}
                   {result.status === "invalid" && <AlertCircle className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-0.5" />}
                   <p
                     className={`font-medium ${
@@ -145,6 +157,8 @@ export const ProductAuthenticationPage = () => {
                         ? "text-green-800"
                         : result.status === "error"
                         ? "text-red-800"
+                        : result.status === "alreadyVerified"
+                        ? "text-orange-800"
                         : "text-yellow-800"
                     }`}
                   >
