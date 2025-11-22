@@ -181,6 +181,22 @@ const products = [
     image: "/peptides/HCG.png",
     has3D: false
   },
+  {
+    name: "IGF-1 LR3 1mg",
+    subtitle: "Insulin-Like Growth Factor",
+    category: "peptides",
+    dosage: "1mg/vial",
+    image: "/peptides/IGF 1.png",
+    has3D: false
+  },
+  {
+    name: "MT-2 10mg",
+    subtitle: "Melanotan II",
+    category: "peptides",
+    dosage: "10mg/vial",
+    image: "/peptides/mt2 (2).png",
+    has3D: false
+  },
   
   // Orals - Tablets/Capsules with actual product images
   {
