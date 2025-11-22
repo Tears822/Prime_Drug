@@ -76,7 +76,7 @@ export const HomePage = () => {
           {/* Product Showcase */}
           <div className="flex items-center justify-center -mt-40">
             <img 
-              src="/assets/Nandrolone phenylpropionate.png" 
+              src="/injectables/Nandrolone phenylpropionate.png" 
               alt="NPP 100 - Nandrolone Phenylpropionate"
               className="w-full h-auto max-w-xs object-contain drop-shadow-2xl"
             />

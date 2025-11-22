@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Filter, Sparkles } from "lucide-react";
-import { ThreeDVial } from "@/components/ThreeDVial";
 
 const products = [
   // Injectables - Vials with actual product images
@@ -9,7 +8,7 @@ const products = [
     subtitle: "Testosterone Enanthate",
     category: "vials",
     dosage: "250mg/ml",
-    image: "/assets/TEST.png",
+    image: "/injectables/TEST.png",
     has3D: false
   },
   {
@@ -17,7 +16,7 @@ const products = [
     subtitle: "Testosterone Propionate",
     category: "vials",
     dosage: "100mg/ml",
-    image: "/assets/testP.png",
+    image: "/injectables/testP.png",
     has3D: false
   },
   {
@@ -25,7 +24,7 @@ const products = [
     subtitle: "Boldenone Undecylenate",
     category: "vials",
     dosage: "200mg/ml",
-    image: "/assets/BOLD.png",
+    image: "/injectables/BOLD.png",
     has3D: false
   },
   {
@@ -33,7 +32,7 @@ const products = [
     subtitle: "Nandrolone Decanoate",
     category: "vials",
     dosage: "200mg/ml",
-    image: "/assets/DECA.png",
+    image: "/injectables/DECA.png",
     has3D: false
   },
   {
@@ -41,7 +40,7 @@ const products = [
     subtitle: "Nandrolone Phenylpropionate",
     category: "vials",
     dosage: "100mg/ml",
-    image: "/assets/Nandrolone phenylpropionate.png",
+    image: "/injectables/Nandrolone phenylpropionate.png",
     has3D: false
   },
   {
@@ -49,7 +48,7 @@ const products = [
     subtitle: "Trenbolone Acetate",
     category: "vials",
     dosage: "100mg/ml",
-    image: "/assets/tren ace.png",
+    image: "/injectables/tren ace.png",
     has3D: false
   },
   {
@@ -57,7 +56,7 @@ const products = [
     subtitle: "Trenbolone Enanthate",
     category: "vials",
     dosage: "200mg/ml",
-    image: "/assets/tren enanthate.png",
+    image: "/injectables/tren enanthate.png",
     has3D: false
   },
   {
@@ -65,83 +64,99 @@ const products = [
     subtitle: "Drostanolone Propionate",
     category: "vials",
     dosage: "100mg/ml",
-    image: "/assets/MasteronPROP.png",
+    image: "/injectables/MasteronPROP.png",
     has3D: false
   },
   
-  // Peptides
+  // Peptides - with actual product images
   {
     name: "HGH 10IU",
     subtitle: "Human Growth Hormone",
     category: "peptides",
     dosage: "10IU/vial",
-    color: "#f97316",
-    has3D: true
-  },
-  {
-    name: "IGF-1 LR3",
-    subtitle: "Insulin Growth Factor",
-    category: "peptides",
-    dosage: "1mg/vial",
-    color: "#fb923c",
-    has3D: true
+    image: "/peptides/HGH.png",
+    has3D: false
   },
   {
     name: "CJC-1295",
     subtitle: "Growth Hormone Peptide",
     category: "peptides",
-    dosage: "2mg/vial",
-    color: "#fdba74",
-    has3D: true
-  },
-  {
-    name: "Ipamorelin",
-    subtitle: "GHRP Peptide",
-    category: "peptides",
-    dosage: "2mg/vial",
-    color: "#fbbf24",
-    has3D: true
+    dosage: "5mg/vial",
+    image: "/peptides/CJC1295 5MG.png",
+    has3D: false
   },
   {
     name: "BPC-157",
     subtitle: "Body Protection Compound",
     category: "peptides",
     dosage: "5mg/vial",
-    color: "#facc15",
-    has3D: true
+    image: "/peptides/BPC157.png",
+    has3D: false
   },
   {
     name: "TB-500",
     subtitle: "Thymosin Beta-4",
     category: "peptides",
-    dosage: "2mg/vial",
-    color: "#fde047",
-    has3D: true
+    dosage: "5mg/vial",
+    image: "/peptides/TB500.png",
+    has3D: false
   },
   {
     name: "Melanotan II",
-    subtitle: "Melanocyte Stimulating",
+    subtitle: "Tanning Peptide",
     category: "peptides",
     dosage: "10mg/vial",
-    color: "#a16207",
-    has3D: true
+    image: "/peptides/MT2.png",
+    has3D: false
   },
   {
-    name: "PT-141",
-    subtitle: "Bremelanotide",
+    name: "GHRP-6",
+    subtitle: "Growth Hormone Release",
+    category: "peptides",
+    dosage: "5mg/vial",
+    image: "/peptides/GHRP6.png",
+    has3D: false
+  },
+  {
+    name: "GHK-Cu",
+    subtitle: "Copper Peptide",
+    category: "peptides",
+    dosage: "5mg/vial",
+    image: "/peptides/GHKCU.png",
+    has3D: false
+  },
+  {
+    name: "KPV",
+    subtitle: "Anti-Inflammatory Peptide",
+    category: "peptides",
+    dosage: "5mg/vial",
+    image: "/peptides/KPV.png",
+    has3D: false
+  },
+  {
+    name: "Retatrutide",
+    subtitle: "GIP/GLP-1/Glucagon Agonist",
     category: "peptides",
     dosage: "10mg/vial",
-    color: "#ca8a04",
-    has3D: true
+    image: "/peptides/Reta.png",
+    has3D: false
+  },
+  {
+    name: "Semax",
+    subtitle: "Nootropic Peptide",
+    category: "peptides",
+    dosage: "5mg/vial",
+    image: "/peptides/semax.png",
+    has3D: false
   },
   
-  // Orals - Tablets/Capsules with actual product images from assets folder
+  // Orals - Tablets/Capsules with actual product images
   {
     name: "Anadrol 50",
     subtitle: "Oxymetholone",
     category: "oral",
     dosage: "50mg",
-    image: "/assets/ANADROL.png",
+    image: "/orals/ANADROL.png",
     has3D: false
   },
   {
@@ -149,7 +164,7 @@ const products = [
     subtitle: "Oxandrolone",
     category: "oral",
     dosage: "10mg",
-    image: "/assets/ANAVAR.png",
+    image: "/orals/ANAVAR.png",
     has3D: false
   },
   {
@@ -157,7 +172,7 @@ const products = [
     subtitle: "Methandienone",
     category: "oral",
     dosage: "10mg",
-    image: "/assets/DIANABOL.png",
+    image: "/orals/DIANABOL.png",
     has3D: false
   },
   {
@@ -165,7 +180,7 @@ const products = [
     subtitle: "Stanozolol",
     category: "oral",
     dosage: "10mg",
-    image: "/assets/WINSTROL.png",
+    image: "/orals/WINSTROL.png",
     has3D: false
   },
   {
@@ -173,7 +188,7 @@ const products = [
     subtitle: "Fluoxymesterone",
     category: "oral",
     dosage: "10mg",
-    image: "/assets/HALO.png",
+    image: "/orals/HALO.png",
     has3D: false
   },
 ];
@@ -258,9 +273,7 @@ export const CatalogPage = () => {
                   <h3 className="text-2xl font-heading font-bold">{product.name}</h3>
                   <p className="text-sm text-gray-500">{product.subtitle}</p>
                   <div className="h-64 bg-gradient-to-br from-brand-gray to-white rounded-2xl border border-dashed border-brand-blue/20 overflow-hidden flex items-center justify-center p-4">
-                    {product.has3D ? (
-                      <ThreeDVial color={product.color} label={product.name} autoRotate={false} />
-                    ) : product.image ? (
+                    {product.image ? (
                       <img
                         src={product.image}
                         alt={product.name}
@@ -274,7 +287,7 @@ export const CatalogPage = () => {
                               {product.dosage.match(/\d+/)?.[0]}
                             </span>
                           </div>
-                          <p className="text-xs uppercase tracking-wider text-gray-400">Tablet</p>
+                          <p className="text-xs uppercase tracking-wider text-gray-400">Product</p>
                         </div>
                       </div>
                     )}
